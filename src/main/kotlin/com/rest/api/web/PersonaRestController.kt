@@ -36,7 +36,7 @@ class PersonaRestController {
     }
 
     @GetMapping("/{id}")
-    fun load(@PathVariable("id") idPersona: Long): ResponseEntity<Persona> {
+    fun load(@PathVariable("id") idPersona: Long): ResponseEntity<Any> {
         return try {
             ResponseEntity(personaBusiness!!.load(idPersona), HttpStatus.OK)
         } catch (e: BusinessException) {
@@ -47,7 +47,7 @@ class PersonaRestController {
     }
 
     @PostMapping("")
-    fun insert(@RequestBody persona: Persona): ResponseEntity<Persona> {
+    fun insert(@RequestBody persona: Persona): ResponseEntity<Any> {
         return try {
             personaBusiness!!.save(persona)
             val responseHeaders = HttpHeaders()
