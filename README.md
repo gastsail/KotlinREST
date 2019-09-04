@@ -1,5 +1,5 @@
 # KotlinREST
-REST API in Kotlin with HTTP methods as update,get,post,delete and Spring
+REST API in Kotlin with HTTP methods as update,get,post,delete made with Spring
 
 ## Architecture
 
