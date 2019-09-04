@@ -32,7 +32,7 @@ class PersonaBusiness: IPersonaBusiness {
         }
 
         if(!op.isPresent){
-            throw NotFoundException("No se encuentra la persona con id=" + idPersona);
+            throw NotFoundException("No se encuentra la persona con id =" + idPersona);
         }
 
         return op.get()
