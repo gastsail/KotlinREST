@@ -1,4 +1,4 @@
-package com.rest.api.business
+package com.rest.api.business.persona
 
 import com.rest.api.model.Persona
 

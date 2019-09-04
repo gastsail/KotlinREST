@@ -1,11 +1,12 @@
-package com.rest.api.business
+package com.rest.api.business.persona
 
+import com.rest.api.exception.BusinessException
+import com.rest.api.exception.NotFoundException
 import com.rest.api.dao.PersonaRepository
 import com.rest.api.model.Persona
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*
-import org.springframework.util.ClassUtils.isPresent
 
 @Service
 class PersonaBusiness: IPersonaBusiness {
@@ -22,7 +23,7 @@ class PersonaBusiness: IPersonaBusiness {
         }
     }
 
-    @Throws(BusinessException::class,NotFoundException::class)
+    @Throws(BusinessException::class, NotFoundException::class)
     override fun load(idPersona: Long): Persona {
         val op: Optional<Persona>?
         try {
@@ -48,7 +49,7 @@ class PersonaBusiness: IPersonaBusiness {
 
     }
 
-    @Throws(BusinessException::class,NotFoundException::class)
+    @Throws(BusinessException::class, NotFoundException::class)
     override fun remove(idPersona: Long) {
         val op: Optional<Persona>?
 
@@ -59,13 +60,17 @@ class PersonaBusiness: IPersonaBusiness {
         }
 
 
-        if (!op.isPresent)
+        if (!op.isPresent){
             throw NotFoundException("No se encuentra la persona con id=$idPersona")
-        try {
-            personaRepository!!.deleteById(idPersona)
-        } catch (e: Exception) {
-            throw BusinessException(e.message)
+        }else{
+            try {
+                personaRepository!!.deleteById(idPersona)
+            } catch (e: Exception) {
+                throw BusinessException(e.message)
+            }
         }
+
+
 
     }
 }

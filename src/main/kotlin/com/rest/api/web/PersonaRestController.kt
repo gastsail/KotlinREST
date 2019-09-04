@@ -1,16 +1,16 @@
 package com.rest.api.web
 
-import com.rest.api.business.IPersonaBusiness
+import com.rest.api.business.persona.IPersonaBusiness
 import com.rest.api.utils.Constantes
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import com.rest.api.business.BusinessException
+import com.rest.api.exception.BusinessException
 import com.rest.api.model.Persona
 import org.springframework.web.bind.annotation.GetMapping
-import com.rest.api.business.NotFoundException
+import com.rest.api.exception.NotFoundException
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping
 class PersonaRestController {
 
     @Autowired
-    val personaBusiness:IPersonaBusiness? = null
+    val personaBusiness: IPersonaBusiness? = null
 
     @GetMapping("")
     fun list(): ResponseEntity<List<Persona>> {
