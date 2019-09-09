@@ -25,7 +25,7 @@ class PersonaBusiness: IPersonaBusiness {
 
     @Throws(BusinessException::class, NotFoundException::class)
     override fun load(idPersona: Long): Persona {
-        val op: Optional<Persona>?
+        val op: Optional<Persona>
         try {
             op = personaRepository!!.findById(idPersona)
         }catch (e:Exception){
@@ -51,14 +51,13 @@ class PersonaBusiness: IPersonaBusiness {
 
     @Throws(BusinessException::class, NotFoundException::class)
     override fun remove(idPersona: Long) {
-        val op: Optional<Persona>?
+        val op: Optional<Persona>
 
         try {
             op = personaRepository!!.findById(idPersona)
         } catch (e: Exception) {
             throw BusinessException(e.message)
         }
-
 
         if (!op.isPresent){
             throw NotFoundException("No se encuentra la persona con id=$idPersona")
@@ -69,8 +68,22 @@ class PersonaBusiness: IPersonaBusiness {
                 throw BusinessException(e.message)
             }
         }
+    }
 
+    @Throws(BusinessException::class, NotFoundException::class)
+    override fun findByNombre(nombre: String): List<Persona> {
+        val op: Optional<List<Persona>>
 
+        try{
+            op = personaRepository!!.findByNombre(nombre)
+        }catch (e:Exception){
+            throw BusinessException(e.message)
+        }
 
+        if(!op.isPresent){
+            throw NotFoundException("No se encuentra la persona con el nombre = $nombre")
+        }
+
+        return op.get()
     }
 }

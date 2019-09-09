@@ -8,4 +8,5 @@ interface IPersonaBusiness {
     fun load(idPersona:Long): Persona
     fun save(persona: Persona): Persona
     fun remove(idPersona: Long)
+    fun findByNombre(nombre:String): List<Persona>
 }
