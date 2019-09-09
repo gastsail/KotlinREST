@@ -9,9 +9,6 @@ data class Titulo(val titulo:String = "") {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator="native")
-    @GenericGenerator(
-            name = "native",
-            strategy = "native"
-    )
+    @GenericGenerator(name = "native", strategy = "native")
     var id:Long = 0
 }

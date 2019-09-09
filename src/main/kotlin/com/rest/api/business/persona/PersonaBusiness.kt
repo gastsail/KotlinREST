@@ -75,7 +75,7 @@ class PersonaBusiness: IPersonaBusiness {
         val op: Optional<List<Persona>>
 
         try{
-            op = personaRepository!!.findByNombre(nombre)
+            op = personaRepository!!.findByNombreIgnoreCase(nombre)
         }catch (e:Exception){
             throw BusinessException(e.message)
         }

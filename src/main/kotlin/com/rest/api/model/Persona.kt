@@ -12,10 +12,7 @@ data class Persona(val dni: Long = 0, val nombre: String = "",
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator="native")
-    @GenericGenerator(
-            name = "native",
-            strategy = "native"
-    )
+    @GenericGenerator(name = "native", strategy = "native")
     var id:Long = 0
 
 }

@@ -8,5 +8,6 @@ import java.util.*
 @Repository
 interface PersonaRepository: JpaRepository<Persona,Long> {
 
-    fun findByNombre(nombre:String): Optional<List<Persona>>
+    fun findByNombreIgnoreCase(nombre:String): Optional<List<Persona>>
+    //fun findByKeyAndOtherKey(...): ...
 }
