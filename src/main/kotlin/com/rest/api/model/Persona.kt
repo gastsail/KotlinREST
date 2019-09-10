@@ -7,11 +7,11 @@ import javax.persistence.*
 @Table(name = "personas")
 data class Persona(val dni: Long = 0, val nombre: String = "",
                    val apellido: String = "",
-                   val fechaNac: LocalDate? = null) {
+                   val fechaNac: LocalDate? = null){
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Long = 0
 
-
 }
+

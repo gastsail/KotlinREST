@@ -11,6 +11,8 @@ class Constantes{
         //Base API endpoint para titulos
         const val URL_BASE_TITULOS = "$URL_BASE/titulos"
 
+        const val URL_BASE_ARCHIVOS = "$URL_BASE/archivos"
+
     }
 
 }
